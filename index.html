@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hexcolor</title>
+</head>
+<body>
+<style>
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+text-align: center;
+    }
+    .hexColor{
+        text-transform: capitalize;
+
+    }
+    .hex{
+        font-size: 3rem;
+    }
+
+    .hexBtn{
+        color: rgba(214, 216, 211, 0.8);
+        border: 2px solid #5570f5cc;
+        border-radius: 5px;
+        background: rgba(0,0,0,0.6);
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 5px;
+        outline: none;
+        text-transform: capitalize;
+    }
+
+    .hexBtn:hover{
+        background: rgba(0,0,0);
+    }
+</style>
+
+    <div class="container">
+        <h2 class="hexColor">This hex color code is: <span class="hex"></span></h2>
+
+        <button class="hexBtn">press me to change color</button>
+    </div>
+
+<script>
+const hexNumbers = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
+const hexBtn = document.querySelector('.hexBtn');
+const bodybgc = document.querySelector('body');
+const hex = document.querySelector('.hex');
+
+const getHex = ()=>{
+    let hexCode = '#';
+    for(let i = 0; i <6; i++){
+        const randomCodes = Math.floor(Math.random()*hexNumbers.length);
+        hexCode += hexNumbers[randomCodes];
+        console.log(hexCode)
+    }
+
+    bodybgc.style.backgroundColor = hexCode;
+    hex.innerHTML = hexCode;
+}
+
+hexBtn.addEventListener('click', getHex);
+
+</script>
+
+</body>
+</html>
